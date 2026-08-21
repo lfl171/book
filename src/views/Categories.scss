@@ -1,0 +1,29 @@
+.categories-page { display: flex; flex-direction: column; gap: 24px; }
+
+.page-header {
+  display: flex; justify-content: space-between; align-items: center;
+  h1 { font-family: 'ZCOOL QingKe HuangYou', cursive; font-size: 28px; background: linear-gradient(135deg, #818cf8, #22d3ee); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+}
+
+.categories-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+
+.category-card {
+  background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(20px);
+  border: 1px solid rgba(99, 102, 241, 0.1); border-radius: 18px;
+  padding: 28px; position: relative; overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  &::before { content: ''; position: absolute; top: -50%; right: -50%; width: 100%; height: 100%; background: radial-gradient(circle, var(--cat-color) 0%, transparent 70%); opacity: 0.08; transition: opacity 0.3s; }
+  &:hover { transform: translateY(-8px); border-color: var(--cat-color); &::before { opacity: 0.15; } }
+  .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
+  .cat-icon { width: 56px; height: 56px; border-radius: 16px; display: flex; align-items: center; justify-content: center; background: var(--cat-bg); .el-icon { font-size: 26px; color: var(--cat-color); } }
+  .card-actions { display: flex; gap: 6px; .el-button { padding: 6px; background: rgba(255,255,255,0.05); border: none; color: #94a3b8; &:hover { background: rgba(255,255,255,0.1); color: #f1f5f9; } } }
+  .cat-name { font-size: 20px; font-weight: 600; color: #f1f5f9; margin-bottom: 8px; }
+  .cat-count { font-size: 36px; font-weight: 700; background: linear-gradient(135deg, var(--cat-color), #f1f5f9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .cat-label { font-size: 14px; color: #64748b; }
+  .cat-bar { margin-top: 20px; height: 4px; background: rgba(255,255,255,0.08); border-radius: 2px; overflow: hidden; }
+  .cat-bar-fill { height: 100%; border-radius: 2px; background: var(--cat-color); transition: width 0.5s ease; }
+}
+
+.dialog-content { padding: 10px 0; }
+.form-item { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+.form-item label { font-size: 14px; color: #94a3b8; }

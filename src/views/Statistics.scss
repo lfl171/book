@@ -1,0 +1,35 @@
+.statistics-page { display: flex; flex-direction: column; gap: 24px; }
+
+.page-header h1 {
+  font-family: 'ZCOOL QingKe HuangYou', cursive; font-size: 28px;
+  background: linear-gradient(135deg, #818cf8, #22d3ee); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+
+.stats-overview { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+
+.overview-card {
+  background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(20px);
+  border: 1px solid rgba(99, 102, 241, 0.1); border-radius: 16px;
+  padding: 20px; text-align: center; transition: all 0.3s;
+  &:hover { transform: translateY(-4px); border-color: var(--color); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+  .card-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; background: var(--bg); .el-icon { font-size: 22px; color: var(--color); } }
+  .card-value { font-size: 32px; font-weight: 700; color: #f1f5f9; margin-bottom: 4px; }
+  .card-label { font-size: 14px; color: #94a3b8; }
+}
+
+.charts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+.chart-card {
+  background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(20px);
+  border: 1px solid rgba(99, 102, 241, 0.1); border-radius: 18px;
+  padding: 24px; transition: all 0.3s;
+  &:hover { border-color: rgba(99, 102, 241, 0.25); }
+  .chart-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;
+    h2 { font-size: 16px; font-weight: 600; color: #f1f5f9; display: flex; align-items: center; gap: 8px;
+      &::before { content: ''; width: 4px; height: 16px; background: linear-gradient(180deg, #6366f1, #06b6d4); border-radius: 2px; }
+    }
+  }
+  .chart-container { height: 320px; }
+}
+
+.chart-card.full-width { grid-column: 1 / -1; }

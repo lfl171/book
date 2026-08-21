@@ -1,0 +1,243 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-body;
+  background: $bg-darker;
+  color: $text-primary;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $bg-dark;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $primary-color;
+  border-radius: 4px;
+  
+  &:hover {
+    background: $primary-light;
+  }
+}
+
+a {
+  color: $primary-light;
+  text-decoration: none;
+  transition: color $transition-fast;
+  
+  &:hover {
+    color: $secondary-light;
+  }
+}
+
+// 通用卡片样式
+.glass-card {
+  background: $bg-card;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+  transition: all $transition-normal;
+  
+  &:hover {
+    background: $bg-card-hover;
+    border-color: rgba(99, 102, 241, 0.3);
+    box-shadow: $shadow-glow;
+    transform: translateY(-4px);
+  }
+}
+
+// 发光按钮
+.glow-button {
+  background: $gradient-primary;
+  border: none;
+  border-radius: $radius-md;
+  padding: 12px 28px;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all $transition-normal;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity $transition-fast;
+  }
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 40px rgba(99, 102, 241, 0.4);
+    
+    &::before {
+      opacity: 1;
+    }
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// 浮动标签输入框
+.float-input {
+  position: relative;
+  
+  input {
+    width: 100%;
+    padding: 16px 20px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 2px solid rgba(99, 102, 241, 0.2);
+    border-radius: $radius-md;
+    color: $text-primary;
+    font-size: 16px;
+    transition: all $transition-normal;
+    
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+      box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+    }
+    
+    &:placeholder {
+      color: transparent;
+    }
+  }
+  
+  label {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: $text-muted;
+    pointer-events: none;
+    transition: all $transition-fast;
+  }
+  
+  input:focus + label,
+  input:not(:placeholder-shown) + label {
+    top: -10px;
+    left: 12px;
+    font-size: 12px;
+    color: $primary-light;
+    background: $bg-dark;
+    padding: 0 8px;
+  }
+}
+
+// 动画关键帧
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(99, 102, 241, 0.6); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+// Element Plus 样式覆盖
+.el-menu {
+  background: transparent !important;
+  border: none !important;
+}
+
+.el-menu-item {
+  color: $text-secondary !important;
+  
+  &:hover {
+    background: rgba(99, 102, 241, 0.1) !important;
+    color: $primary-light !important;
+  }
+  
+  &.is-active {
+    color: $primary-light !important;
+    background: rgba(99, 102, 241, 0.15) !important;
+  }
+}
+
+.el-input__wrapper {
+  background: rgba(15, 23, 42, 0.6) !important;
+  border: 1px solid rgba(99, 102, 241, 0.2) !important;
+  box-shadow: none !important;
+  
+  &:hover {
+    border-color: rgba(99, 102, 241, 0.4) !important;
+  }
+  
+  &.is-focus {
+    border-color: $primary-color !important;
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.2) !important;
+  }
+}
+
+.el-input__inner {
+  color: $text-primary !important;
+}
+
+.el-table {
+  background: transparent !important;
+  
+  th.el-table__cell {
+    background: rgba(99, 102, 241, 0.1) !important;
+    color: $primary-light !important;
+    border-bottom: 1px solid rgba(99, 102, 241, 0.2) !important;
+  }
+  
+  td.el-table__cell {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+    color: $text-secondary !important;
+  }
+  
+  tr {
+    background: transparent !important;
+    
+    &:hover > td.el-table__cell {
+      background: rgba(99, 102, 241, 0.05) !important;
+    }
+  }
+}
+
+.el-dialog {
+  background: $bg-dark !important;
+  border: 1px solid rgba(99, 102, 241, 0.2) !important;
+  border-radius: $radius-lg !important;
+}
+
+.el-dialog__title {
+  color: $text-primary !important;
+}
+
+.el-pagination {
+  --el-pagination-bg-color: transparent;
+  --el-pagination-text-color: $text-secondary;
+  --el-pagination-button-color: $text-secondary;
+}

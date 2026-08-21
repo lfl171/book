@@ -1,0 +1,57 @@
+.my-borrow-page { display: flex; flex-direction: column; gap: 24px; }
+
+.page-header h1 {
+  font-family: 'ZCOOL QingKe HuangYou', cursive; font-size: 28px;
+  background: linear-gradient(135deg, #818cf8, #22d3ee); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+
+.borrow-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+.stat-card {
+  display: flex; align-items: center; gap: 16px;
+  padding: 20px; background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(20px);
+  border: 1px solid rgba(99, 102, 241, 0.1); border-radius: 14px;
+  transition: all 0.3s;
+  &:hover { transform: translateY(-4px); }
+  &.borrowing .stat-icon { background: rgba(99,102,241,0.15); color: #818cf8; }
+  &.returned .stat-icon { background: rgba(16,185,129,0.15); color: #10b981; }
+  &.overdue .stat-icon { background: rgba(239,68,68,0.15); color: #ef4444; }
+  .stat-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; .el-icon { font-size: 22px; } }
+  .stat-info { display: flex; flex-direction: column; }
+  .stat-value { font-size: 28px; font-weight: 700; color: #f1f5f9; }
+  .stat-label { font-size: 13px; color: #64748b; }
+}
+
+.filter-bar {
+  display: flex; gap: 12px;
+}
+
+.records-list { display: flex; flex-direction: column; gap: 12px; }
+
+.record-card {
+  display: flex; align-items: center; gap: 20px; padding: 20px;
+  background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(20px);
+  border: 1px solid rgba(99, 102, 241, 0.1); border-radius: 14px;
+  transition: all 0.3s;
+  &:hover { border-color: rgba(99, 102, 241, 0.2); transform: translateX(4px); }
+}
+
+.record-cover {
+  width: 52px; height: 68px; border-radius: 10px; flex-shrink: 0;
+  background: linear-gradient(135deg, rgba(99,102,241,0.3), rgba(6,182,212,0.3));
+  display: flex; align-items: center; justify-content: center;
+  .el-icon { font-size: 22px; color: #818cf8; }
+}
+
+.record-info { flex: 1; min-width: 0; }
+.record-title { font-size: 16px; font-weight: 600; color: #f1f5f9; margin-bottom: 8px; }
+.record-dates { display: flex; gap: 16px; font-size: 13px; color: #64748b; }
+
+.record-status { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+.status-tag { padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 500; }
+.status-tag.borrowing { background: rgba(99,102,241,0.15); color: #818cf8; }
+.status-tag.returned { background: rgba(16,185,129,0.15); color: #10b981; }
+.status-tag.overdue { background: rgba(239,68,68,0.15); color: #ef4444; }
+.days-text { font-size: 12px; &.normal { color: #10b981; } &.warning { color: #f59e0b; } &.danger { color: #ef4444; } }
+
+.record-actions { display: flex; gap: 8px; flex-shrink: 0; }
